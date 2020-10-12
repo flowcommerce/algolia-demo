@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="shortcut icon" href="./favicon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"
+    />
+    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="stylesheet" href="./src/app.css" />
+    <link rel="stylesheet" href="./src/country-picker.css" />
+
+    <title>ais-ecommerce-demo-app</title>
+
+    <script>
+!function (f, l, o, w, i, n, g) {
+f[i] = f[i] || {};f[i].cmd = f[i].cmd || function () {
+(f[i].q = f[i].q || []).push(arguments);};n = l.createElement(o);
+n.src = w;g = l.getElementsByTagName(o)[0];g.parentNode.insertBefore(n, g);
+}(window,document,'script','https://cdn.flow.io/flowjs/latest/flow.min.js','flow');
+flow.cmd('set', 'organization', 'shopify-dev-sandbox');
+flow.cmd('init');
+</script>
+
+    <script src="https://cdn.flow.io/country-picker/js/v0/country-picker.min.js"></script>
+
+  </head>
+
+  <body>
+    <div class="ais-InstantSearch">
+      <h1>InstantSearch.js e-commerce demo</h1>
+
+
+      <div class="left-panel">
+        <div id="country-picker"></div>
+        <div id="clear-refinements"></div>
+
+        <h2>Categories</h2>
+        <div id="categories-list"></div>
+
+        <h2>Brand</h2>
+        <div id="brand-list"></div>
+
+        <h2>Price</h2>
+        <div id="price-filter"></div>
+      </div>
+
+      <div class="right-panel">
+        <div id="searchbox" class="ais-SearchBox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+
+    <script src="./src/app.js"></script>
+  </body>
+</html>
