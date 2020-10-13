@@ -52,3 +52,26 @@ body {
 .panel-container {
   display: flex;
 }
+
+.buy-now-btn {
+  border-radius: 2px;
+  padding: 10px 8px 10px 8px;
+  border-color: #3283e6;;
+  color: #3283e6;;
+  background-color: transparent;
+  font-weight: 500;
+  align-items: center;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.buy-now-btn:hover {
+  cursor: pointer;
+  border-color: #a4cbfc;
+  color: #a4cbfc;
+}
+
+.buy-now-container {
+  padding-top: 10px;
+}
