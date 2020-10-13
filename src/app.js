@@ -12,6 +12,24 @@ flow.cmd('on', 'ready', function () {
     containerId: 'country-picker'
   });
 
+  const experience = flow.session.getExperience();
+  const country = flow.session.getCountry();
+  // const currency = flow.session.getCurrency();
+  const session = flow.session.getSession();
+
+  const separator = session.local.locale.numbers.group;
+  const decimal = session.local.locale.numbers.decimal;
+  const symbol = session.local.currency.symbols.primary;
+
+  const currencyFormatter = value => currency(value, {
+    symbol,
+    separator,
+    decimal,
+    precision: 0
+  });
+  // const intlNumberFormatter = new Intl.NumberFormat(country, { style: 'currency', currency, numberingSystem: 'latn', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+
   search.addWidgets([
     instantsearch.widgets.searchBox({
       container: '#searchbox',
@@ -29,12 +47,12 @@ flow.cmd('on', 'ready', function () {
     }),
     instantsearch.widgets.numericMenu({
       container: '#price-filter',
-      attribute: 'local_' + 'france' + '_price.amount',
+      attribute: `local_${experience}_price.amount`,
       items: [
         { label: 'All' },
-        { label: 'Less than 50', end: 50 },
-        { label: 'Between 50 - 100', start: 50, end: 100 },
-        { label: 'More than 100', start: 100 },
+        { label: `Less than ${currencyFormatter(50).format()}`, end: 50 },
+        { label: `Between ${currencyFormatter(50).format()} - ${currencyFormatter(100).format()}`, start: 50, end: 100 },
+        { label: `More than ${currencyFormatter(100).format()}`, start: 100 },
       ],
     }),
     instantsearch.widgets.hits({
@@ -49,7 +67,7 @@ flow.cmd('on', 'ready', function () {
             <div class="hit-description">
               {{description}}
             </div>
-            <div class="hit-price">{{local_france_price.label}}</div>
+            <div class="hit-price">{{local_${experience}_price.label}}</div>
           </div>
         `,
       },

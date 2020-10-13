@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://unpkg.com/currency.js@~2.0.0/dist/currency.min.js"></script>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -30,34 +31,37 @@ n.src = w;g = l.getElementsByTagName(o)[0];g.parentNode.insertBefore(n, g);
 flow.cmd('set', 'organization', 'shopify-dev-sandbox');
 flow.cmd('init');
 </script>
-
     <script src="https://cdn.flow.io/country-picker/js/v0/country-picker.min.js"></script>
 
   </head>
 
   <body>
     <div class="ais-InstantSearch">
-      <h1>InstantSearch.js e-commerce demo</h1>
-
-
-      <div class="left-panel">
+      <div>
         <div id="country-picker"></div>
-        <div id="clear-refinements"></div>
-
-        <h2>Categories</h2>
-        <div id="categories-list"></div>
-
-        <h2>Brand</h2>
-        <div id="brand-list"></div>
-
-        <h2>Price</h2>
-        <div id="price-filter"></div>
+        <h1>InstantSearch.js e-commerce demo</h1>
       </div>
 
-      <div class="right-panel">
-        <div id="searchbox" class="ais-SearchBox"></div>
-        <div id="hits"></div>
-        <div id="pagination"></div>
+      <div class="panel-container">
+        <div class="left-panel">
+          <div id="clear-refinements"></div>
+
+          <h2>Categories</h2>
+          <div id="categories-list"></div>
+
+          <h2>Brand</h2>
+          <div id="brand-list"></div>
+
+          <h2>Price</h2>
+          <div id="price-filter"></div>
+          <div id="range-filter"></div>
+        </div>
+
+        <div class="right-panel">
+          <div id="searchbox" class="ais-SearchBox"></div>
+          <div id="hits"></div>
+          <div id="pagination"></div>
+        </div>
       </div>
     </div>
 
