@@ -10,6 +10,60 @@ body {
 }
 
 #country-picker {
-  float: right;
-  padding-top: 10px;
+  position: absolute;
+  top: 13px;
+  right:8px;
+}
+.flow-country-picker-modal-trigger{
+background-color: #ffffffcf;
+}
+.black-header{
+  background-color: #333;
+  text-align: center;
+}
+.black-header img{
+  padding-top: 3px;
+}
+.header-menu{
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.header-menu img{
+  width: 100%;
+  max-width: 1200px;
+}
+#searchbox{
+  position: absolute;
+  top: 50px;
+  right: 5rem;
+  width: 250px;
+}  
+.ais-SearchBox-submit{
+  left: 14rem;
+  top:1rem;
+}
+.ais-Hits-item img {
+margin-bottom: .5em;
+}
+.left-panel{
+  margin-left: 3em;
+}
+.selloverlay{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+h2{
+  font-size: .8em;
+}
+[class^=ais-]{
+  font-size: .95em;
+}
+.ais-RefinementList-label{
+text-transform:capitalize;  
+}
+
+.ais-RefinementList-count{
+  display: none;
 }

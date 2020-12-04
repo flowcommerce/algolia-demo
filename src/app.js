@@ -1,9 +1,9 @@
 /* global instantsearch algoliasearch */
 
 const search = instantsearch({
-  indexName: 'v1.production_shopify-dev-sandbox_master_items',
+  indexName: 'v1.production_realrealdemo-sandbox_master_items',
   /* the following password is a way of restricting access - it is visible from the FE and does not need to be secret */
-  searchClient: algoliasearch('ACHCRLFQK0', 'c5a387e92afcd03ac6f94111076b2a69'),
+  searchClient: algoliasearch('ACHCRLFQK0', 'bba0520e3cc1fbe5022c7e5640436a58'),
 });
 
 var lowNumber;
@@ -46,7 +46,11 @@ flow.cmd('on', 'ready', function () {
     }),
     instantsearch.widgets.refinementList({
       container: '#brand-list',
-      attribute: 'attributes.vendor',
+      attribute: 'attributes.brand',
+    }),
+    instantsearch.widgets.refinementList({
+      container: '#size-list',
+      attribute: 'attributes.size',
     }),
     instantsearch.widgets.numericMenu({
       container: '#price-filter',
@@ -97,7 +101,7 @@ flow.cmd('on', 'ready', function () {
               {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
             </div>
             <div class="hit-description">
-              {{description}}
+             {{#helpers.highlight}}{ "attribute": "size" }{{/helpers.highlight}}
             </div>
             <div class="hit-price">{{local_${experience}_price.label}}</div>
             <div class="buy-now-container">

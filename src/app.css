@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  padding: 1em;
+  padding: 0;
 }
 
 .ais-ClearRefinements {
@@ -74,4 +74,37 @@ body {
 
 .buy-now-container {
   padding-top: 10px;
+}
+
+.ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item{
+border:0px;
+box-shadow: 0 0 0;
+text-align: center;
+position: relative;
+}
+.ais-ClearRefinements-button{
+  background-color: #888;
+}
+.buy-now-btn{
+  border: 1px solid #999;
+  color:#999;
+}
+#hits{
+  margin-top:65px;
+}
+#pagination{
+  float:right;
+  margin-right: 4em;
+}
+.ais-Pagination-link{
+  border: 0px;
+  color:#000;
+}
+.ais-Pagination-item--selected .ais-Pagination-link{
+  background-color: #fff;
+  color:#000;
+  font-weight: bold;
+}
+.ais-Pagination-link{
+  color:grey;
 }
