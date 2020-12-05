@@ -12,9 +12,10 @@ var highNumber;
 flow.cmd('on', 'ready', function () {
   window.flow.countryPicker.createCountryPicker({
     type: 'modal',
-    containerId: 'country-picker'
+    containerId: 'country-picker',
+    isDestination: true
   });
-
+  
   const experience = flow.session.getExperience();
   const country = flow.session.getCountry();
   // const currency = flow.session.getCurrency();
@@ -51,45 +52,6 @@ flow.cmd('on', 'ready', function () {
     instantsearch.widgets.refinementList({
       container: '#size-list',
       attribute: 'attributes.size',
-    }),
-    instantsearch.widgets.numericMenu({
-      container: '#price-filter',
-      attribute: `local_${experience}_price.amount`,
-      items: [
-        { label: 'All' },
-        { label: `Less than ${currencyFormatter(50).format()}`, end: 50 },
-        { label: `Between ${currencyFormatter(50).format()} - ${currencyFormatter(100).format()}`, start: 50, end: 100 },
-        { label: `More than ${currencyFormatter(100).format()}`, start: 100 },
-      ],
-      transformItems: (items) => {
-        if(search.helper) {
-          const item = search.helper.lastResults.hits[0];
-
-          if (!item) {
-            return items;
-          }
-
-          const basePrice = item.price.amount;
-          const localizedPrice = item[`local_${experience}_price`] ? item[`local_${experience}_price`].amount : basePrice;
-          const ratio = localizedPrice / basePrice;
-          const reg = new RegExp('\\d+');
-          lowNumber = lowNumber ? lowNumber : Math.floor(Number(reg.exec(items[1].label)[0]) * ratio);
-          highNumber = highNumber ? highNumber : Math.floor(Number(reg.exec(items[3].label)[0]) * ratio);
-
-          if (!highNumber || !lowNumber) {
-            return items;
-          } else {
-            return [
-              { label: 'All', value: window.encodeURI('{}') },
-              { label: `Less than ${currencyFormatter(lowNumber).format()}`, value: window.encodeURI(`{"end":${lowNumber}}`) },
-              { label: `Between ${currencyFormatter(lowNumber).format()} - ${currencyFormatter(highNumber).format()}`, value: window.encodeURI(`{"start":${lowNumber},"end":${highNumber}}`)},
-              { label: `More than ${currencyFormatter(highNumber).format()}`, value: window.encodeURI(`{"start":${highNumber}}`) },
-            ]
-          }
-        } else {
-          return items;
-        }
-      }
     }),
     instantsearch.widgets.hits({
       container: '#hits',
