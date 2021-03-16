@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./src/app.css" />
     <link rel="stylesheet" href="./src/country-picker.css" />
 
-    <title>ais-ecommerce-demo-app</title>
+    <title>Glossier</title>
 
     <script>
 !function (f, l, o, w, i, n, g) {
@@ -33,7 +33,7 @@ flow.cmd('set', 'organization', 'glossier-demo-sandbox');
 flow.cmd('init');
 </script>
     <script src="https://cdn.flow.io/country-picker/js/v0/country-picker.min.js"></script>
-
+    
   </head>
 
   <body>
@@ -42,7 +42,7 @@ flow.cmd('init');
       <div class="black-header">
         <div id="country-picker"></div>
       </div>
-      <div class="header-menu" style="margin-top: 50px; padding-bottom: 5px; border-bottom: 1px solid #ccc;">
+      <div class="header-menu" style="margin-top: 50px; padding-bottom: 5px; border-bottom: 1px solid #ccc; text-align: center;">
         <img src="img/headermenu.png" />
         <div id="searchbox" class="ais-SearchBox" style="display: none;"></div>
       </div>
@@ -56,9 +56,10 @@ flow.cmd('init');
           <h2>Brand</h2>
           <div id="brand-list"></div>
 
-          <h2>Price</h2>
-          <div id="price-filter"></div>
-          <div id="range-filter"></div>
+          <h2>Size</h2>
+          <div id="size-list"></div>
+
+          <div id="clear-refinements"></div>
         </div>
 
         <div class="right-panel">
