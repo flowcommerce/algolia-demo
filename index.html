@@ -28,7 +28,8 @@ f[i] = f[i] || {};f[i].cmd = f[i].cmd || function () {
 (f[i].q = f[i].q || []).push(arguments);};n = l.createElement(o);
 n.src = w;g = l.getElementsByTagName(o)[0];g.parentNode.insertBefore(n, g);
 }(window,document,'script','https://cdn.flow.io/flowjs/latest/flow.min.js','flow');
-flow.cmd('set', 'organization', 'shopify-dev-sandbox');
+
+flow.cmd('set', 'organization', 'glossier-demo-sandbox');
 flow.cmd('init');
 </script>
     <script src="https://cdn.flow.io/country-picker/js/v0/country-picker.min.js"></script>
@@ -37,15 +38,18 @@ flow.cmd('init');
 
   <body>
     <div class="ais-InstantSearch">
-      <div>
+
+      <div class="black-header">
         <div id="country-picker"></div>
-        <h1>InstantSearch.js e-commerce demo</h1>
+      </div>
+      <div class="header-menu" style="margin-top: 50px; padding-bottom: 5px; border-bottom: 1px solid #ccc;">
+        <img src="img/headermenu.png" />
+        <div id="searchbox" class="ais-SearchBox" style="display: none;"></div>
       </div>
 
       <div class="panel-container">
-        <div class="left-panel">
+        <div class="left-panel" style="display: none;">
           <div id="clear-refinements"></div>
-
           <h2>Categories</h2>
           <div id="categories-list"></div>
 

@@ -1,7 +1,32 @@
+startCheckOut = function(org,country,number) {
+  
+  if(country === 'CAN'){
+    flow.cart.redirectToCheckoutWithForm({
+      attributes: {
+        cartId: "624c74d6-73cd-4230-885e-b0169357716c",
+        customerId: ""
+      },
+      items: [{
+        number: number,
+        quantity: 1,
+      }],
+    });
+
+
+  }else{
+    window.location = 'https://checkout.flow.io/'+org+'/order?country='+country+'&items[0].number='+number+'&items[0].quantity=1';
+  }
+}
+
+bestseller = function (bes){
+  return bes;
+}
+
 /* global instantsearch algoliasearch */
 
 const search = instantsearch({
-  indexName: 'v1.production_shopify-dev-sandbox_master_items',
+  indexName: 'v1.production_glossier-demo-sandbox_master_items',
+
   /* the following password is a way of restricting access - it is visible from the FE and does not need to be secret */
   searchClient: algoliasearch('ACHCRLFQK0', 'c5a387e92afcd03ac6f94111076b2a69'),
 });
@@ -95,13 +120,18 @@ flow.cmd('on', 'ready', function () {
             <img src="{{images.0.url}}" align="left" width=100% />
             <div class="hit-name">
               {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
+             {{#attributes.best}}
+              <p class="bestseller">Bestseller</p>
+            {{/attributes.best}}
+             {{#attributes.top}}top
+              <p class="toprated">Top Rated</p>
+            {{/attributes.top}}
             </div>
             <div class="hit-description">
-              {{description}}
+             {{categories}}
             </div>
-            <div class="hit-price">{{local_${experience}_price.label}}</div>
             <div class="buy-now-container">
-              <button class="buy-now-btn" type="button" id="{{id}}" onclick="window.location.href = 'https://checkout.flow.io/${flow.session.getOrganization()}/order?country=${country}&items[0].number={{number}}&items[0].quantity=1'">Buy Now</button>
+              <button class="buy-now-btn" type="button" id="{{id}}" onclick="startCheckOut('${flow.session.getOrganization()}','${country}','{{number}}')"><span class="ab">Add to Bag</span><span class="price">{{local_${experience}_price.label}}</span></button>
             </div>
           </div>
         `,
@@ -115,3 +145,4 @@ flow.cmd('on', 'ready', function () {
   search.start();
 
 });
+

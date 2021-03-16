@@ -1,6 +1,7 @@
 body {
-  font-family: sans-serif;
-  padding: 1em;
+  font-family: "Apercu Pro", -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+  padding: 0;
+
 }
 
 .ais-ClearRefinements {
@@ -32,6 +33,7 @@ body {
 .ais-Hits-item {
   margin-bottom: 1em;
   min-width: 200px;
+  padding: 0;;
   /* width: calc(50% - 1rem); */
 }
 
@@ -41,37 +43,115 @@ body {
 
 .hit-name {
   margin-bottom: 0.5em;
+  text-align: left;
+  color:#000;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .hit-description {
   color: #888;
   font-size: 14px;
   margin-bottom: 0.5em;
+  text-align: left;
 }
 
 .panel-container {
   display: flex;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .buy-now-btn {
   border-radius: 2px;
   padding: 10px 8px 10px 8px;
-  border-color: #3283e6;;
-  color: #3283e6;;
+  border-color: #888;;
+  color: #000;
   background-color: transparent;
   font-weight: 500;
   align-items: center;
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
+  width: 100%;
 }
 
 .buy-now-btn:hover {
   cursor: pointer;
-  border-color: #a4cbfc;
-  color: #a4cbfc;
+  border-color: #000;
+  color: #000;
+}
+
+.ab{ 
+  font-weight: bold;
+  float: left;
+}
+.price{
+  float: right;
 }
 
 .buy-now-container {
   padding-top: 10px;
+}
+
+.ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item{
+border:0px;
+box-shadow: 0 0 0;
+text-align: center;
+position: relative;
+}
+.ais-ClearRefinements-button{
+  background-color: #888;
+}
+.buy-now-btn{
+  margin-top: 25px;
+  border: 1px solid #999;
+  color:#000;
+}
+#hits{
+  margin-top:65px;
+}
+#pagination{
+  float:right;
+  margin-right: 4em;
+}
+.ais-Pagination-link{
+  border: 0px;
+  color:#000;
+}
+.ais-Pagination-item--selected .ais-Pagination-link{
+  background-color: #fff;
+  color:#000;
+  font-weight: bold;
+}
+.ais-Pagination-link{
+  color:grey;
+}
+.header-menu img{
+  width: 100%;
+  max-width: 1200px;
+}
+
+.bestseller{
+  background-color: #fff;
+  font-size: 11px;
+  position: absolute;
+  top: 1px;
+  right: 8px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: normal;
+}
+.toprated{
+  background-color: #fff;
+  font-size: 11px;
+  position: absolute;
+  top: 1px;
+  right: 8px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: normal;
+
 }
