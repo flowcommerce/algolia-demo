@@ -25,7 +25,7 @@ bestseller = function (bes){
 /* global instantsearch algoliasearch */
 
 const search = instantsearch({
-  indexName: 'v1.production_glossier-demo-sandbox_master_items',
+  indexName: 'v1.production_marksandspencer-demo-sandbox_master_items',
 
   /* the following password is a way of restricting access - it is visible from the FE and does not need to be secret */
   searchClient: algoliasearch('ACHCRLFQK0', 'bba0520e3cc1fbe5022c7e5640436a58'),
@@ -83,20 +83,16 @@ flow.cmd('on', 'ready', function () {
         item: `
           <div>
             <img src="{{images.0.url}}" align="left" width=100% />
-            <div class="hit-name">
-              {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
-             {{#attributes.best}}
-              <p class="bestseller">Bestseller</p>
-            {{/attributes.best}}
-             {{#attributes.top}}top
-              <p class="toprated">Top Rated</p>
-            {{/attributes.top}}
-            </div>
-            <div class="hit-description">
+            <div class="hit-description mt">
              {{categories}}
             </div>
+            <div class="hit-name">
+              {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}<br /><br />
+              <span class="price-label">{{local_${experience}_price.label}}</span>
+            </div>
+            
             <div class="buy-now-container">
-              <button class="buy-now-btn" type="button" id="{{id}}" onclick="startCheckOut('${flow.session.getOrganization()}','${country}','{{number}}')"><span class="ab">Add to Bag</span><span class="price">{{local_${experience}_price.label}}</span></button>
+              <button class="buy-now-btn" type="button" id="{{id}}" onclick="startCheckOut('${flow.session.getOrganization()}','${country}','{{number}}')">Add to Bag</button>
             </div>
           </div>
         `,
